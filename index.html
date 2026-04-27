@@ -49,8 +49,6 @@
       color: var(--canvas);
     }
 
-    nav .logo span { color: var(--flame); }
-
     nav ul {
       list-style: none;
       display: flex;
@@ -67,6 +65,52 @@
     }
 
     nav ul a:hover { color: var(--flame); }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--canvas);
+      transition: all 0.3s ease;
+    }
+
+    .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .burger { display: flex; }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--ink);
+        padding: 2rem;
+        gap: 1.5rem;
+        border-top: 1px solid rgba(243,243,230,0.08);
+        z-index: 999;
+      }
+
+      nav ul.open { display: flex; }
+
+      nav ul a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(243,243,230,0.08);
+      }
+    }
 
     /* HERO */
     .hero {
@@ -944,14 +988,19 @@
 
 <nav>
   <div class="logo">Marleigh <span>McKay</span></div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#artist">Artist</a></li>
-    <li><a href="#advocate">Advocate</a></li>
-    <li><a href="#storyteller">Storyteller</a></li>
-    <li><a href="#mindful">Mindful</a></li>
-    <li><a href="#aspirations">Looking Forward</a></li>
+  <ul id="nav-menu">
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#artist" onclick="closeMenu()">Artist</a></li>
+    <li><a href="#advocate" onclick="closeMenu()">Advocate</a></li>
+    <li><a href="#storyteller" onclick="closeMenu()">Storyteller</a></li>
+    <li><a href="#mindful" onclick="closeMenu()">Mindful</a></li>
+    <li><a href="#aspirations" onclick="closeMenu()">Looking Forward</a></li>
   </ul>
+  <div class="burger" id="burger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1363,6 +1412,18 @@
     Class of 2027
   </div>
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-menu').classList.toggle('open');
+    document.getElementById('burger').classList.toggle('open');
+  }
+
+  function closeMenu() {
+    document.getElementById('nav-menu').classList.remove('open');
+    document.getElementById('burger').classList.remove('open');
+  }
+</script>
 
 </body>
 </html>
