@@ -535,6 +535,7 @@
     }
 
     .story-card:hover { transform: translateY(-3px); }
+    .story-card:hover .story-card-hover { opacity: 1; }
 
     .story-card-type {
       font-size: 0.62rem;
@@ -1159,38 +1160,55 @@
     <p class="storyteller-intro">Storytelling is how I make sense of the world. Whether it's through a lens at a concert, a byline in a school publication, or an exhibit at a DC museum, I'm always looking for the moment that reveals something true. I've had the chance to develop that instinct across journalism, photography, fashion media, curation, and visual art.</p>
 
     <div class="storyteller-grid">
-      <div class="story-card">
-        <div class="story-card-type">Journalism</div>
-        <h3>Editor-in-Chief, The Sabre</h3>
-        <p>I lead editorial direction for St. John's College High School's student publication, managing staff writers and producing stories on arts, culture, and sports with a focus on elevating perspectives that don't always get the spotlight.</p>
-        <a href="https://sjcsabre.org/author/marleigh/" target="_blank">Read my articles</a>
-      </div>
-      <div class="story-card">
-        <div class="story-card-type">Photography</div>
-        <h3>Event and Concert Photography</h3>
-        <p>I shoot concerts and sporting events across Washington, DC as a freelance photographer, capturing live moments through visual storytelling. Recent work includes DC Emancipation Day and behind-the-scenes coverage for the Washington Mystics.</p>
-      </div>
-      <div class="story-card">
-        <div class="story-card-type">Fashion and Brand</div>
-        <h3>Vogue Summer School, 2025</h3>
-        <p>I completed an intensive program in fashion media, branding, and marketing in New York City, developing editorial and visual storytelling skills through workshops and industry-led instruction.</p>
-      </div>
-      <div class="story-card">
-        <div class="story-card-type">Brand and Media</div>
-        <h3>Ghost Note Media Intern</h3>
-        <p>I supported the development of marketing materials for a rebranding project with the Washington Mystics, contributing to content development and producing behind-the-scenes photography for their case study.</p>
-      </div>
-      <div class="story-card">
-        <div class="story-card-type">Curation</div>
-        <h3>Junior Curator, Go-Go Museum</h3>
-        <p>I research and curate dance history content for public exhibits highlighting DC's cultural legacy, contributing to the storytelling and preservation of go-go culture through archival work and exhibit development.</p>
-      </div>
-      <div class="story-card">
-        <div class="story-card-type">Visual Art</div>
-        <h3>Painting and Visual Work</h3>
-        <p>My paintings are another way of looking closely. The same instinct that shapes my photography and writing shows up here too. Art as another form of paying attention.</p>
-      </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('sabre.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Journalism</div>
+      <h3>Editor-in-Chief, The Sabre</h3>
+      <p>I lead editorial direction for St. John's College High School's student publication, managing staff writers and producing stories on arts, culture, and sports with a focus on elevating perspectives that don't always get the spotlight.</p>
+      <a href="https://sjcsabre.org/author/marleigh/" target="_blank">Read my articles</a>
     </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('photographer.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Photography</div>
+      <h3>Event and Concert Photography</h3>
+      <p>I shoot concerts and sporting events across Washington, DC as a freelance photographer, capturing live moments through visual storytelling. Recent work includes DC Emancipation Day and behind-the-scenes coverage for the Washington Mystics.</p>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('vogue.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Fashion and Brand</div>
+      <h3>Vogue Summer School, 2025</h3>
+      <p>I completed an intensive program in fashion media, branding, and marketing in New York City, developing editorial and visual storytelling skills through workshops and industry-led instruction.</p>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('ghost-note.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Brand and Media</div>
+      <h3>Ghost Note Media Intern</h3>
+      <p>I supported the development of marketing materials for a rebranding project with the Washington Mystics, contributing to content development and producing behind-the-scenes photography for their case study.</p>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Curation</div>
+      <h3>Junior Curator, Go-Go Museum</h3>
+      <p>I research and curate dance history content for public exhibits highlighting DC's cultural legacy, contributing to the storytelling and preservation of go-go culture through archival work and exhibit development.</p>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('artist.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Visual Art</div>
+      <h3>Painting and Visual Work</h3>
+      <p>My paintings are another way of looking closely. The same instinct that shapes my photography and writing shows up here too. Art as another form of paying attention.</p>
+    </div>
+  </div>
+</div>
 
     <div class="ig-placeholder-amber" style="margin-top:2.5rem;">
       <p>Photography and art feed coming soon</p>
@@ -1325,11 +1343,11 @@
         <a class="letter-btn" href="Ryden-letter.pdf" target="_blank">Read Full Letter</a>
       </div>
       <div class="letter-card-flame">
-        <div class="letter-card-label">Office of the Mayor</div>
-        <h3>Muriel Bowser</h3>
-        <p>Mayor of Washington, DC. Has known Marleigh since 2021 and has observed her civic leadership across multiple years and contexts.</p>
-        <a class="letter-btn-flame" href="Bowser-letter.pdf" target="_blank">Read Full Letter</a>
-      </div>
+  <div class="letter-card-label">Office of the Mayor</div>
+  <h3>Muriel Bowser</h3>
+  <p>Mayor of Washington, DC. Has known Marleigh since 2021 and has observed her civic leadership across multiple years and contexts.</p>
+  <a class="letter-btn-flame" href="Bowser-letter.pdf" target="_blank">Read Full Letter</a>
+</div>
     </div>
   </div>
 </section>
