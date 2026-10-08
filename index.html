@@ -365,6 +365,22 @@
     }
 
     /* ARTIST */
+    .highlights-band { background: var(--ink); padding: 2.25rem 2rem; border-bottom: 1px solid rgba(243,243,230,0.12); }
+    .hl-head { max-width: 1100px; margin: 0 auto 1.5rem; display: flex; align-items: baseline; gap: 1.25rem; flex-wrap: wrap; }
+    .hl-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fuchsia); }
+    .hl-head p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: rgba(243,243,230,0.75); }
+    .highlights-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 0; align-items: center; }
+    .hl-item { padding: 0.25rem 1.5rem; border-left: 1px solid rgba(243,243,230,0.15); display: flex; align-items: center; gap: 1.1rem; }
+    .hl-item:first-child { border-left: none; padding-left: 0; }
+    .hl-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--zest); line-height: 1; }
+    .hl-text { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--canvas); line-height: 1.3; }
+    .hl-text span { display: block; margin-top: 0.3rem; font-family: 'DM Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(243,243,230,0.55); line-height: 1.5; }
+    @media (max-width: 900px) {
+      .highlights-inner { grid-template-columns: 1fr; gap: 1.1rem; }
+      .hl-item { border-left: none; padding: 0; }
+      .hl-item + .hl-item { border-top: 1px solid rgba(243,243,230,0.12); padding-top: 1.1rem; }
+    }
+
     .artist { background: #2b241e; color: var(--canvas); position: relative; }
     .artist .section-title { color: var(--canvas); }
     .artist .section-label { color: var(--fuchsia); }
@@ -1054,6 +1070,29 @@
   </div>
 </section>
 
+<!-- HIGHLIGHTS BAND -->
+<section class="highlights-band" aria-label="Dance highlights">
+  <div class="hl-head">
+    <span class="hl-label">Dance Highlights</span>
+    <p>A few recent moments in my training that mean a lot to me.</p>
+  </div>
+  <div class="highlights-inner">
+    <div class="hl-item hl-lead">
+      <div class="hl-num">$325K</div>
+      <div class="hl-text">in college scholarship offers<span>NYCDA College Scholarship Audition, 2026</span></div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-text">Full Scholarship Recipient<span>Alvin Ailey Professional Division Summer Intensive, 2026</span></div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-text">Outstanding Dancer<span>New York City Dance Alliance, 2026</span></div>
+    </div>
+    <div class="hl-item">
+      <div class="hl-text">Kennedy Center Performer<span>Hope Boykin Dance Lab, 2025</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ARTIST -->
 <section class="artist" id="artist">
   <div class="container">
@@ -1089,14 +1128,6 @@
     <div class="quote-block" style="border-left-color:var(--fuchsia); background:rgba(228,76,129,0.06); max-width:650px; margin-bottom:3rem;">
       <blockquote style="color:var(--canvas);">"The studio has not always been comfortable, but it has been formative. It has taught me to look closely at myself, not just to perfect what is visible, but to better understand what lives beneath it."</blockquote>
       <cite style="color:var(--fuchsia);">Marleigh McKay</cite>
-    </div>
-
-    <div style="display:flex; align-items:center; gap:1.75rem; flex-wrap:wrap; border-left:3px solid var(--zest); background:rgba(207,177,47,0.08); padding:1.5rem 2rem; margin-bottom:1.5rem;">
-      <div style="font-family:'Cormorant Garamond',serif; font-size:3.25rem; font-weight:300; color:var(--zest); line-height:1;">$325K</div>
-      <div>
-        <div style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--canvas); margin-bottom:0.3rem;">in college scholarship offers</div>
-        <div class="award-org">NYCDA College Scholarship Audition, 2026</div>
-      </div>
     </div>
 
     <div class="awards-grid">
