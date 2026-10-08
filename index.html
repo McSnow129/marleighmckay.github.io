@@ -115,11 +115,11 @@
     /* HERO */
     .hero {
       position: relative;
-      height: 100vh;
+      min-height: 100vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
       overflow: hidden;
-      padding-top: 60px;
+      padding: 60px 0 0;
     }
 
     .hero-image {
@@ -128,10 +128,12 @@
     }
 
     .hero-image img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 25%;
       display: block;
     }
 
@@ -140,7 +142,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 4rem;
+      padding: 2.5rem 4rem;
       border-left: 3px solid var(--fuchsia);
     }
 
@@ -158,7 +160,7 @@
       font-weight: 300;
       line-height: 1.0;
       color: var(--canvas);
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
     }
 
     .hero-name em {
@@ -171,8 +173,8 @@
       line-height: 1.8;
       color: rgba(243,243,230,0.65);
       font-style: italic;
-      max-width: 380px;
-      margin-bottom: 2.5rem;
+      max-width: 520px;
+      margin-bottom: 2.25rem;
     }
 
     .hero-tags {
@@ -191,6 +193,7 @@
 
     .tag-dancer { border: 1px solid var(--fuchsia); color: var(--fuchsia); text-decoration: none; }
     .tag-advocate { border: 1px solid var(--flame); color: var(--flame); text-decoration: none; }
+    .tag-resume { background: var(--canvas); border: 1px solid var(--canvas); color: var(--ink); text-decoration: none; }
     .tag-storyteller { border: 1px solid var(--zest); color: var(--zest); text-decoration: none; }
     .tag-builder { border: 1px solid var(--blush); color: var(--blush); text-decoration: none; }
 
@@ -579,7 +582,11 @@
     }
 
     .story-card:hover { transform: translateY(-3px); }
-    .story-card:hover .story-card-hover { opacity: 1; }
+    .story-card:hover .story-card-hover { opacity: 1 !important; }
+
+    .story-card-hover::after { content:''; position:absolute; inset:0; background:rgba(20,16,12,0.62); }
+    .story-card:hover h3, .story-card:hover p { color:#fff; opacity:1; }
+    .story-card:hover .story-card-type, .story-card:hover a { color:var(--zest); border-color:var(--zest); }
 
     .story-card-type {
       font-size: 0.62rem;
@@ -884,7 +891,7 @@
       display: grid;
       grid-template-columns: 1.2fr 1fr;
       gap: 5rem;
-      align-items: center;
+      align-items: start;
     }
 
     .aspirations-text p {
@@ -998,11 +1005,11 @@
 <nav>
   <div class="logo">Marleigh <span>McKay</span></div>
   <ul id="nav-menu">
+    <li><a href="#artist" onclick="closeMenu()">Dance</a></li>
     <li><a href="#about" onclick="closeMenu()">About</a></li>
-    <li><a href="#artist" onclick="closeMenu()">Artist</a></li>
+    <li><a href="#mindful" onclick="closeMenu()">Psychology</a></li>
+    <li><a href="#storyteller" onclick="closeMenu()">Creative Vision</a></li>
     <li><a href="#advocate" onclick="closeMenu()">Advocate</a></li>
-    <li><a href="#storyteller" onclick="closeMenu()">Storyteller</a></li>
-    <li><a href="#mindful" onclick="closeMenu()">Mindful</a></li>
     <li><a href="#aspirations" onclick="closeMenu()">Looking Forward</a></li>
   </ul>
   <div class="burger" id="burger" onclick="toggleMenu()">
@@ -1015,65 +1022,26 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-image">
-    <img src="Marleigh_McKay_Headshot.jpg" alt="Marleigh McKay" />
+    <img src="hero-jump.jpg" alt="Marleigh McKay in a split leap" />
   </div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Washington, DC &nbsp;&bull;&nbsp; Class of 2027</p>
+    <p class="hero-eyebrow">Dance Artist &nbsp;&bull;&nbsp; Washington, DC &nbsp;&bull;&nbsp; Class of 2027</p>
     <h1 class="hero-name">Marleigh<br><em>McKay</em></h1>
-    <p class="hero-tagline">"Curious dancer, storyteller, and builder. Drawn to what people and communities are missing, and committed to shining light on what deserves to be seen."</p>
+    <p class="hero-tagline">I'm a dance artist and creative who tells stories through movement, photography, painting, and writing. Culture and community are centered in everything I create, and I'm often compelled to use my artistry as advocacy. I'm deeply curious about exploring the influence art can have on society, and the psychological impact society has on the artist.</p>
     <div class="hero-tags">
   <a href="#artist" class="tag tag-dancer">Dancer</a>
+  <a href="#mindful" class="tag tag-builder">Psychology</a>
+  <a href="#storyteller" class="tag tag-storyteller">Creative Vision</a>
   <a href="#advocate" class="tag tag-advocate">Advocate</a>
-  <a href="#storyteller" class="tag tag-storyteller">Storyteller</a>
-  <a href="#mindful" class="tag tag-builder">Builder</a>
+  <a href="Marleigh-McKay-Dance-Resume.pdf" target="_blank" rel="noopener" class="tag tag-resume">Dance Resume</a>
 </div>
 
-    <div style="margin-top:2rem; background:var(--flame); padding:1.75rem 1.5rem;">
+    <div style="margin-top:1.5rem; background:var(--flame); padding:1.5rem 1.5rem;">
   <p style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(243,243,230,0.8); margin-bottom:0.75rem; font-family:'DM Sans',sans-serif;">Letter of Recommendation</p>
-  <p style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-style:italic; font-weight:300; line-height:1.6; color:var(--canvas); margin-bottom:0.75rem;">"From our earliest interaction, Marleigh impressed me with her composure, intellect, and sense of civic responsibility."</p>
+  <p style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-style:italic; font-weight:300; line-height:1.55; color:var(--canvas); margin-bottom:0.75rem;">"Her artistry reflects the same discipline and intentionality she brings to her public service work. She is a young woman of exceptional range."</p>
   <span style="font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(243,243,230,0.9); font-family:'DM Sans',sans-serif;">Muriel Bowser, Mayor of Washington, DC</span>
 </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <span class="section-label">Who I Am</span>
-        <h2 class="section-title">Artist.<br>Advocate.<br>Builder.</h2>
-        <p>I'm a 17-year-old pre-professional dancer, community organizer, visual storyteller, and youth educator from Washington, DC. I've been training in ballet, pointe, and contemporary dance since I was eight. Alongside that, I've spent the last several years building programs, asking questions, and trying to open doors I noticed were missing.</p>
-        <p>I'm drawn to what people carry beneath the surface, in dance, in communities, and in the spaces between them. That curiosity has taken me from the studio to the DC City Council chamber, from elementary school classrooms to national conference stages, and from a dance barre to the pages of a children's book read in hundreds of schools nationwide.</p>
-
-        <div class="quote-block">
-          <blockquote>"She is a Renaissance teen. Someone who has many interests and talents and somehow manages to make her mark in so many different aspects of her life. She wears it all so lightly even though she works so hard."</blockquote>
-          <cite>Linda Ryden, Founder, Peace of Mind</cite>
-        </div>
-      </div>
-
-      <div>
-        <span class="impact-label">Impact</span>
-        <div class="about-stats">
-          <div class="stat stat-flame">
-            <div class="stat-number">2,500+</div>
-            <div class="stat-label">Students reached through HBCU Day curriculum</div>
-          </div>
-          <div class="stat stat-fuchsia">
-            <div class="stat-number">420+</div>
-            <div class="stat-label">Community service hours at Title I school</div>
-          </div>
-          <div class="stat stat-zest">
-            <div class="stat-number">100s</div>
-            <div class="stat-label">Schools carrying <em>Marleigh Is Mindful</em> nationwide</div>
-          </div>
-          <div class="stat stat-blush">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Years of pre-professional dance training</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1083,13 +1051,18 @@
     <span class="section-label">The Artist</span>
     <h2 class="section-title" style="color:var(--canvas)">Dance and Performance</h2>
 
-    <p class="artist-intro">Dance is where I started. I've been training since I was three, and it has shaped how I understand discipline, storytelling, and what it means to be fully present. It is also where I've had some of my hardest moments, and where I've learned the most about myself. I train in ballet, pointe, and contemporary at the pre-professional level and have had the privilege of performing and competing at some of the country's most recognized stages and programs.</p>
+    <p class="artist-intro">Dance is the center of everything else I do. I've been training since I was three, and it has shaped how I understand discipline, storytelling, and what it means to be fully present. It is also where I've had some of my hardest moments, and where I've learned the most about myself. I train in ballet, pointe, and contemporary at the pre-professional level, I've performed and competed on some of the country's most recognized stages, and I'm aiming for a professional career with a contemporary company.</p>
 
-    <div class="photo-grid">
-      <img src="dance-01.jpg" alt="Marleigh McKay dance" style="aspect-ratio:3/4; object-fit:cover; width:100%; display:block;" />
-      <img src="dance-02.jpeg" alt="Marleigh McKay dance" style="aspect-ratio:3/4; object-fit:cover; width:100%; display:block;" />
-      <img src="dance-03.jpeg" alt="Marleigh McKay dance" style="aspect-ratio:3/4; object-fit:cover; width:100%; display:block;" />
+    <div class="photo-grid" style="margin-bottom:1rem;">
+      <img src="dance-jump-crossed.jpg" alt="Marleigh McKay in a split leap with arms crossed" loading="lazy" style="aspect-ratio:4/5; object-fit:cover; width:100%; display:block;" />
+      <img src="dance-pointe-green.jpg" alt="Marleigh McKay on pointe" loading="lazy" style="aspect-ratio:4/5; object-fit:cover; width:100%; display:block;" />
+      <img src="dance-contemporary-navy-01.jpg" alt="Marleigh McKay in a contemporary reach" loading="lazy" style="aspect-ratio:4/5; object-fit:cover; width:100%; display:block;" />
+      <img src="dance-arabesque-brown.jpg" alt="Marleigh McKay in arabesque with raised arms" loading="lazy" style="aspect-ratio:4/5; object-fit:cover; width:100%; display:block;" />
+      <img src="dance-contemporary-navy-02.jpg" alt="Marleigh McKay in a low contemporary lunge" loading="lazy" style="aspect-ratio:4/5; object-fit:cover; width:100%; display:block;" />
+      <img src="dance-attitude-rust.jpg" alt="Marleigh McKay in a contemporary attitude" loading="lazy" style="aspect-ratio:4/5; object-fit:cover; width:100%; display:block;" />
     </div>
+    <p style="font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(243,243,230,0.45); margin-bottom:1.5rem;">Photography by Rachel Neville</p>
+    <a href="Marleigh-McKay-Dance-Resume.pdf" target="_blank" rel="noopener" style="display:inline-block; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--fuchsia); border:1px solid var(--fuchsia); padding:0.7rem 1.4rem; text-decoration:none; margin-bottom:4rem;">View Dance Resume (PDF)</a>
 
     <!-- Dance Instagram feed - coming soon
 <div style="margin-top:2.5rem; margin-bottom:2.5rem;">
@@ -1108,11 +1081,19 @@
       <cite style="color:var(--fuchsia);">Marleigh McKay</cite>
     </div>
 
+    <div style="display:flex; align-items:center; gap:1.75rem; flex-wrap:wrap; border-left:3px solid var(--zest); background:rgba(207,177,47,0.08); padding:1.5rem 2rem; margin-bottom:1.5rem;">
+      <div style="font-family:'Cormorant Garamond',serif; font-size:3.25rem; font-weight:300; color:var(--zest); line-height:1;">$325K</div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--canvas); margin-bottom:0.3rem;">in college scholarship offers</div>
+        <div class="award-org">NYCDA College Scholarship Audition, 2026</div>
+      </div>
+    </div>
+
     <div class="awards-grid">
       <div class="award-item">
         <div class="award-icon"></div>
         <div class="award-title">Full Scholarship Recipient</div>
-        <div class="award-org">Alvin Ailey Pre-Professional Summer Intensive, New York, 2026</div>
+        <div class="award-org">Alvin Ailey Professional Division Summer Intensive, New York, 2026</div>
       </div>
       <div class="award-item">
         <div class="award-icon"></div>
@@ -1121,7 +1102,7 @@
       </div>
       <div class="award-item">
         <div class="award-icon"></div>
-        <div class="award-title">Choice Artist & Ballet Scholarship</div>
+        <div class="award-title">Choice Artist & Ballet Merit Scholarship</div>
         <div class="award-org">Radix Dance Convention, 2026</div>
       </div>
       <div class="award-item">
@@ -1140,6 +1121,151 @@
         <div class="award-org">The Go-Go Museum, Washington, DC</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-label">Who I Am</span>
+        <h2 class="section-title">A dancer with<br>a long view.</h2>
+        <p>I'm a 17-year-old dancer from Washington, DC. I've been dancing since I was three, and I train in ballet, pointe, and contemporary at the pre-professional level. I plan to study dance in college, double major in psychology, and spend the first act of my career as a professional dancer with a contemporary company.</p>
+        <p>The second act is performance psychology. I want to work with artists and athletes, helping them sustain both their performance and their sense of self. Outside the studio, I keep making things through photography, painting, and storytelling, and I'd like to stay close to creative direction long after my performing years.</p>
+      </div>
+
+      <div>
+        <img src="headshot-2026.jpg" alt="Portrait of Marleigh McKay" style="width:100%; display:block; aspect-ratio:4/5; object-fit:cover; object-position:center 20%;" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINDFUL -->
+<section class="mindful" id="mindful">
+  <div class="container">
+    <div class="mindful-grid">
+      <div class="mindful-text">
+        <span class="section-label">Psychology</span>
+        <h2 class="section-title">The Mind Behind<br><em style="color:var(--blush); font-family:'Cormorant Garamond',serif;">the Movement.</em></h2>
+
+        <p>It started in first grade, when my teacher Ms. Linda Ryden taught me how to understand what I was feeling and why. I still use Four Square Breathing backstage before performances, and I still journal when things feel uncertain.</p>
+
+        <p>Ms. Ryden was inspired to write <em>Marleigh Is Mindful</em> after seeing a photograph of me teaching Four Square Breathing to my dance sisters before a performance. A second book, <em>Marleigh's Big Feelings</em>, followed for preschool readers. When she brought me as a surprise guest to a school using the curriculum, I signed every book and talked with every child.</p>
+
+        <p>Dance made that curiosity personal. Performing means working through nerves and pressure in front of an audience, and I became fascinated by what is happening in the mind when the body is asked to do something extraordinary. That grew into a real interest in psychology. I co-founded my school's Psychology Club, where I design workshops on mental health and emotional awareness for my peers, and I plan to study psychology alongside dance in college. Someday, I want to earn my PhD and help artists and athletes care for their minds the way they train their bodies.</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.75rem; margin:1.25rem 0;">
+  <img src="peace-01.jpeg" alt="Marleigh Is Mindful" style="width:100%; display:block; object-fit:cover; aspect-ratio:3/4;" />
+  <img src="peace-02.jpeg" alt="Marleigh Is Mindful" style="width:100%; display:block; object-fit:cover; aspect-ratio:3/4;" />
+  <img src="peace-03.jpeg" alt="Marleigh Is Mindful" style="width:100%; display:block; object-fit:cover; aspect-ratio:3/4;" />
+</div>
+
+        <div class="mindful-highlight">
+          <p>"Who wouldn't want their students to grow up to be like Marleigh? She is kind, intelligent, loyal, curious, deeply committed to peace and justice, funny, humble, creative, dedicated, hard-working, talented and peaceful."</p>
+          <cite>Linda Ryden, Founder, Peace of Mind</cite>
+        </div>
+      </div>
+
+      <div class="mindful-stats">
+        <div class="mindful-stat">
+          <div class="number">100s</div>
+          <div class="label">Schools carrying <em>Marleigh Is Mindful</em> nationwide</div>
+        </div>
+        <div class="mindful-stat">
+          <div class="number">6+</div>
+          <div class="label">Years as a featured youth speaker at the Peace of Mind national conference</div>
+        </div>
+        <div class="mindful-stat">
+          <div class="number">2</div>
+          <div class="label">Books published with Marleigh as named subject and contributor</div>
+        </div>
+        <div class="mindful-stat">
+          <div class="number">K-12</div>
+          <div class="label">Range of students reached through classroom visits and workshops</div>
+        </div>
+        <div class="mindful-quote-dark">
+          <blockquote>"She gave me a framework I've built my life around, one I now pass forward to others."</blockquote>
+          <cite>Marleigh McKay</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORYTELLER -->
+<section class="storyteller" id="storyteller">
+  <div class="container">
+    <span class="section-label">Creative Vision</span>
+    <h2 class="section-title">Stories told<br>many ways.</h2>
+
+    <p class="storyteller-intro">Dance is my main language, but it isn't the only one I speak. I gather inspiration from the world around me, from my community, and from the culture of the city I grew up in, and I tell those stories through a camera, a pen, a paintbrush, and an exhibit wall. These skills make me a better dancer, and they keep me curious about directing and creating work of my own someday.</p>
+
+    <div class="storyteller-grid">
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('gogo.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Curation</div>
+      <h3>Junior Curator, Go-Go Museum</h3>
+      <p>I research and curate dance history content for public exhibits highlighting DC's cultural legacy, contributing to the storytelling and preservation of go-go culture through archival work and exhibit development.</p>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('photographer.jpg'); background-size:cover; background-position:center 25%; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Photography</div>
+      <h3>Event and Concert Photography</h3>
+      <p>I shoot concerts and sporting events across Washington, DC as a freelance photographer, capturing live moments through visual storytelling. Recent work includes DC Emancipation Day and behind-the-scenes coverage for the Washington Mystics.</p>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('sabre.jpg'); background-size:cover; background-position:center 25%; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Journalism</div>
+      <h3>Editor-in-Chief, The Sabre</h3>
+      <p>I lead editorial direction for St. John's College High School's student publication, managing staff writers and producing stories on arts, culture, and sports with a focus on elevating perspectives that don't always get the spotlight.</p>
+      <a href="https://sjcsabre.org/author/marleigh/" target="_blank">Read my articles</a>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('painting.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Visual Art</div>
+      <h3>Painting and Visual Work</h3>
+      <p>Painting is another way I tell stories, and it feeds the same instincts as my photography and my dancing. It is where I slow down and look closely at the world around me.</p>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('ghost-note.jpg'); background-size:cover; background-position:center 25%; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Brand and Media</div>
+      <h3>Ghost Note Media Intern</h3>
+      <p>I supported the development of marketing materials for a rebranding project with the Washington Mystics, contributing to content development and producing behind-the-scenes photography for their case study.</p>
+    </div>
+  </div>
+  <div class="story-card" style="position:relative; overflow:hidden;">
+    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('vogue.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
+    <div style="position:relative; z-index:2;">
+      <div class="story-card-type">Fashion and Brand</div>
+      <h3>Vogue Summer School, 2025</h3>
+      <p>I completed an intensive program in fashion media, branding, and marketing in New York City, developing editorial and visual storytelling skills through workshops and industry-led instruction.</p>
+    </div>
+  </div>
+</div>
+
+   <div style="margin-top:2.5rem;">
+  <p style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--amber); margin-bottom:0.5rem; font-weight:500;">Recent Work</p>
+  <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--ink); margin-bottom:0.35rem;">Check out some of my latest photography and art.</h3>
+  <p style="font-size:0.85rem; color:rgba(26,22,18,0.6); font-weight:300; margin-bottom:1.5rem;">Follow <a href="https://www.instagram.com/marzmedialab" target="_blank" style="color:var(--amber); text-decoration:none;">@marzmedialab</a> for more.</p>
+  <behold-widget feed-id="avhdd1r2PrYsH7PelwUn"></behold-widget>
+<script>
+  (() => {
+    const d=document,s=d.createElement("script");s.type="module";
+    s.src="https://w.behold.so/widget.js";d.head.append(s);
+  })();
+</script>
+</div>
   </div>
 </section>
 
@@ -1167,7 +1293,7 @@
 </div>
 
         <div class="quote-block-flame">
-          <blockquote>"Washington, DC has shaped Marleigh McKay, and I have no doubt she will spend her life giving that back."</blockquote>
+          <blockquote>"Washington, DC has shaped Marleigh McKay, and I have no doubt that she will spend her life giving that back."</blockquote>
           <cite>Mayor Muriel Bowser, Washington, DC</cite>
         </div>
       </div>
@@ -1180,6 +1306,13 @@
           <p>That conversation became my middle school capstone project: HBCU Day, a schoolwide curriculum I designed to introduce students to the history, significance, and academic strength of Historically Black Colleges and Universities. At a predominantly white school, my goal was not just to inform, but to expand how students understood their options. To date, that curriculum has reached over 2,500 students.</p>
           <p>When I arrived at St. John's, that blind spot still existed. I co-founded the school's first HBCU College Tour, organizing a five-day, seven-campus trip for 27 students. After the tour, HBCU applications from my school increased by 10%. Both programs were designed to continue beyond me. The goal was never visibility. It was access.</p>
         </div>
+
+        <div class="about-stats" style="margin:1.5rem 0 1.25rem; grid-template-columns:1fr;">
+  <div class="stat stat-flame">
+    <div class="stat-number">2,500+</div>
+    <div class="stat-label">Students reached through HBCU Day curriculum</div>
+  </div>
+</div>
 
         <div class="photo-grid-2">
   <img src="hbcu-tour-01.jpeg" alt="HBCU Tour" style="width:100%; display:block; object-fit:cover; aspect-ratio:4/3;" />
@@ -1216,134 +1349,6 @@
   </div>
 </section>
 
-<!-- STORYTELLER -->
-<section class="storyteller" id="storyteller">
-  <div class="container">
-    <span class="section-label">The Storyteller</span>
-    <h2 class="section-title">Photography.<br>Writing. Vision.</h2>
-
-    <p class="storyteller-intro">Storytelling is how I make sense of the world. Whether it's through a lens at a concert, a byline in a school publication, or an exhibit at a DC museum, I'm always looking for the moment that reveals something true. I've had the chance to develop that instinct across journalism, photography, fashion media, curation, and visual art.</p>
-
-    <div class="storyteller-grid">
-  <div class="story-card" style="position:relative; overflow:hidden;">
-    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('sabre.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
-    <div style="position:relative; z-index:2;">
-      <div class="story-card-type">Journalism</div>
-      <h3>Editor-in-Chief, The Sabre</h3>
-      <p>I lead editorial direction for St. John's College High School's student publication, managing staff writers and producing stories on arts, culture, and sports with a focus on elevating perspectives that don't always get the spotlight.</p>
-      <a href="https://sjcsabre.org/author/marleigh/" target="_blank">Read my articles</a>
-    </div>
-  </div>
-  <div class="story-card" style="position:relative; overflow:hidden;">
-    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('photographer.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
-    <div style="position:relative; z-index:2;">
-      <div class="story-card-type">Photography</div>
-      <h3>Event and Concert Photography</h3>
-      <p>I shoot concerts and sporting events across Washington, DC as a freelance photographer, capturing live moments through visual storytelling. Recent work includes DC Emancipation Day and behind-the-scenes coverage for the Washington Mystics.</p>
-    </div>
-  </div>
-  <div class="story-card" style="position:relative; overflow:hidden;">
-    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('vogue.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
-    <div style="position:relative; z-index:2;">
-      <div class="story-card-type">Fashion and Brand</div>
-      <h3>Vogue Summer School, 2025</h3>
-      <p>I completed an intensive program in fashion media, branding, and marketing in New York City, developing editorial and visual storytelling skills through workshops and industry-led instruction.</p>
-    </div>
-  </div>
-  <div class="story-card" style="position:relative; overflow:hidden;">
-    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('ghost-note.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
-    <div style="position:relative; z-index:2;">
-      <div class="story-card-type">Brand and Media</div>
-      <h3>Ghost Note Media Intern</h3>
-      <p>I supported the development of marketing materials for a rebranding project with the Washington Mystics, contributing to content development and producing behind-the-scenes photography for their case study.</p>
-    </div>
-  </div>
-  <div class="story-card" style="position:relative; overflow:hidden;">
-    <div style="position:relative; z-index:2;">
-      <div class="story-card-type">Curation</div>
-      <h3>Junior Curator, Go-Go Museum</h3>
-      <p>I research and curate dance history content for public exhibits highlighting DC's cultural legacy, contributing to the storytelling and preservation of go-go culture through archival work and exhibit development.</p>
-    </div>
-  </div>
-  <div class="story-card" style="position:relative; overflow:hidden;">
-    <div class="story-card-hover" style="position:absolute; inset:0; background-image:url('artist.jpg'); background-size:cover; background-position:center; opacity:0; transition:opacity 0.3s ease; z-index:1;"></div>
-    <div style="position:relative; z-index:2;">
-      <div class="story-card-type">Visual Art</div>
-      <h3>Painting and Visual Work</h3>
-      <p>My paintings are another way of looking closely. The same instinct that shapes my photography and writing shows up here too. Art as another form of paying attention.</p>
-    </div>
-  </div>
-</div>
-
-   <div style="margin-top:2.5rem;">
-  <p style="font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--amber); margin-bottom:0.5rem; font-weight:500;">Recent Work</p>
-  <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--ink); margin-bottom:0.35rem;">Check out some of my latest photography and art.</h3>
-  <p style="font-size:0.85rem; color:rgba(26,22,18,0.6); font-weight:300; margin-bottom:1.5rem;">Follow <a href="https://www.instagram.com/marzmedialab" target="_blank" style="color:var(--amber); text-decoration:none;">@marzmedialab</a> for more.</p>
-  <behold-widget feed-id="avhdd1r2PrYsH7PelwUn"></behold-widget>
-<script>
-  (() => {
-    const d=document,s=d.createElement("script");s.type="module";
-    s.src="https://w.behold.so/widget.js";d.head.append(s);
-  })();
-</script>
-</div>
-  </div>
-</section>
-
-<!-- MINDFUL -->
-<section class="mindful" id="mindful">
-  <div class="container">
-    <div class="mindful-grid">
-      <div class="mindful-text">
-        <span class="section-label">The Mindful Practice</span>
-        <h2 class="section-title">Marleigh<br><em style="color:var(--blush); font-family:'Cormorant Garamond',serif;">Is Mindful.</em></h2>
-
-        <p>In first grade, my teacher Ms. Linda Ryden introduced me to something most classrooms don't teach: how to understand what I was feeling and why. That stuck with me. I still use Four Square Breathing backstage before performances. I still journal. I come back to these tools whenever things feel uncertain.</p>
-
-        <p>What I didn't expect was that it would become a book. Ms. Ryden was inspired to write <em>Marleigh Is Mindful</em> after seeing a photograph of me leading Four Square Breathing with my dance sisters backstage before a performance. I wrote the introduction. A second book, <em>Marleigh's Big Feelings</em>, followed for preschool readers. Ms. Ryden has said she doubts she will ever stop being inspired by me, which I find both humbling and motivating.</p>
-
-        <p>When Ms. Ryden brought me as a surprise guest to a school using the curriculum, the students went wild. She described it as if a celebrity had walked through the door. I signed every book and tried to be present with every child, the same way she was always present with me.</p>
-
-        <p>That early curiosity about emotion and why we feel what we feel never left me. It grew into a genuine interest in psychology. I co-founded the Psychology Club at my high school, where I design workshops on mental health and emotional awareness for my peers. And in the summer of 2026, I will begin career shadowing with sports psychologists, observing how mental health supports athletic and performance-based careers. That experience connects everything: dance, mindfulness, and the science of how people perform under pressure.</p>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.75rem; margin:1.25rem 0;">
-  <img src="peace-01.jpeg" alt="Marleigh Is Mindful" style="width:100%; display:block; object-fit:cover; aspect-ratio:3/4;" />
-  <img src="peace-02.jpeg" alt="Marleigh Is Mindful" style="width:100%; display:block; object-fit:cover; aspect-ratio:3/4;" />
-  <img src="peace-03.jpeg" alt="Marleigh Is Mindful" style="width:100%; display:block; object-fit:cover; aspect-ratio:3/4;" />
-</div>
-
-        <div class="mindful-highlight">
-          <p>"Who wouldn't want their students to grow up to be like Marleigh? She embodies everything we are trying to accomplish."</p>
-          <cite>Linda Ryden, Founder, Peace of Mind</cite>
-        </div>
-      </div>
-
-      <div class="mindful-stats">
-        <div class="mindful-stat">
-          <div class="number">100s</div>
-          <div class="label">Schools carrying <em>Marleigh Is Mindful</em> nationwide</div>
-        </div>
-        <div class="mindful-stat">
-          <div class="number">6+</div>
-          <div class="label">Years as a featured youth speaker at the Peace of Mind national conference</div>
-        </div>
-        <div class="mindful-stat">
-          <div class="number">2</div>
-          <div class="label">Books published with Marleigh as named subject and contributor</div>
-        </div>
-        <div class="mindful-stat">
-          <div class="number">K-12</div>
-          <div class="label">Range of students reached through classroom visits and workshops</div>
-        </div>
-        <div class="mindful-quote-dark">
-          <blockquote>"She gave me a framework I've built my life around, one I now pass forward to others."</blockquote>
-          <cite>Marleigh McKay</cite>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- RECOGNITION -->
 <section class="recognition" id="recognition">
   <div class="container">
@@ -1364,7 +1369,15 @@
       </div>
       <div class="recognition-item">
         <h3>Community Service Award</h3>
-        <p>Recognized for sustained commitment to community engagement and mentorship</p>
+        <p>Recognized for sustained commitment to community engagement and mentorship. 420+ service hours at a Title I school.</p>
+      </div>
+      <div class="recognition-item">
+        <h3>National Honor Society</h3>
+        <p>Inducted sophomore year. Recognized for scholarship, leadership, service, and character.</p>
+      </div>
+      <div class="recognition-item">
+        <h3>Academic Record</h3>
+        <p>10 AP courses, including 5 in senior year. 4.2 weighted GPA through junior year and 4.4 so far in senior year.</p>
       </div>
     </div>
     <p style="margin-top:1.5rem; font-size:0.82rem; opacity:0.5; font-style:italic;">Dance scholarships and performance awards are listed in the Artist section.</p>
@@ -1378,24 +1391,24 @@
       <div class="aspirations-text">
         <span class="section-label">Looking Forward</span>
         <h2 class="section-title">Where I'm<br>Headed.</h2>
-        <p>I envision a career focused on helping performers and athletes better understand the connection between their mental and physical well-being, so they can sustain both their performance and their sense of self.</p>
-        <p>As a dancer and storyteller, I'm drawn to how the body tells stories, how the mind shapes them, and how a more holistic approach to health can support stronger, more authentic performance. My planned shadowing at Howard University's Sports Medicine department, working alongside a Sports Psychologist and Physical Therapist, will give me a direct window into what that future could look like.</p>
-        <p>My goal is to bridge performance, science, and storytelling, to help others perform, heal, and grow. The form may evolve, but the direction feels clear.</p>
+        <p>Dance and psychology fit together, and I'm excited to build a life around both. Dance is how I learn what the body can say, and psychology is how I'm learning to understand why. I hope to spend the first half of my career on stage, fully inside the creative process, and the second half supporting the artists and athletes who carry the same pressure I do.</p>
+        <p>I'm still learning, and I expect the path to change along the way. The direction, though, feels clear.</p>
       </div>
 
       <div class="aspirations-phases">
         <div class="phase">
-          <div class="phase-label">Now</div>
-          <p>Pre-professional dancer, visual storyteller, and community builder. Learning by doing.</p>
+          <div class="phase-label">College</div>
+          <p>Pursue a dual degree in dance and psychology.</p>
         </div>
         <div class="phase">
-          <div class="phase-label">Next</div>
-          <p>Advanced study in psychology and physical therapy to understand the mental and physical demands placed on performers and athletes.</p>
+          <div class="phase-label">On Stage</div>
+          <p>Dance professionally with a contemporary company and be fully immersed in the creative process.</p>
         </div>
         <div class="phase">
-          <div class="phase-label">Ultimately</div>
-          <p>A practice that supports performers as whole individuals, with accessible resources and mentorship that expand awareness of performance health.</p>
+          <div class="phase-label">After the Stage</div>
+          <p>Return to school for a PhD in psychology and build a practice that serves the unique mental health needs of artists and athletes.</p>
         </div>
+        <img src="dance-02.jpeg" alt="Marleigh McKay smiling at the barre" loading="lazy" style="width:100%; display:block; aspect-ratio:1/1; object-fit:cover; object-position:center top; margin-top:0.5rem;" />
       </div>
     </div>
   </div>
@@ -1432,8 +1445,9 @@
     <p>Washington, DC &nbsp;&bull;&nbsp; marleighmckay.com</p>
   </div>
   <div class="footer-note">
-    Dancer &bull; Advocate &bull; Storyteller<br>
-    Class of 2027
+    Dancer &bull; Psychology &bull; Creative Vision<br>
+    Class of 2027<br>
+    Photography by Rachel Neville
   </div>
 </footer>
 
