@@ -381,6 +381,8 @@
       .hl-item + .hl-item { border-top: 1px solid rgba(243,243,230,0.12); padding-top: 1.1rem; }
     }
 
+    .highlights-band.hl-inline { background: none; border: none; padding: 0; margin-bottom: 1.1rem; }
+    .hl-inline .hl-head { max-width: none; margin: 0 0 0.2rem; }
     .artist { background: #2b241e; color: var(--canvas); position: relative; }
     .artist .section-title { color: var(--canvas); }
     .artist .section-label { color: var(--fuchsia); }
@@ -481,6 +483,16 @@
       opacity: 0.75;
       line-height: 1.4;
     }
+
+    .award-item { position: relative; overflow: hidden; }
+    .award-inner { position: relative; z-index: 2; }
+    .award-hover { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 0.3s ease; z-index: 1; }
+    .award-hover::after { content: ''; position: absolute; inset: 0; background: rgba(20,16,12,0.66); }
+    .award-item:hover .award-hover { opacity: 1; }
+    .award-item .award-title { font-weight: 700; font-size: 1.25rem; }
+    .award-lines { font-size: 0.82rem; line-height: 1.55; color: var(--blush); opacity: 0.9; font-weight: 300; }
+    .award-lines div + div { margin-top: 0.3rem; }
+    .award-item:hover .award-lines { color: var(--canvas); opacity: 1; }
 
     /* ADVOCATE */
     .advocate { background: var(--canvas); }
@@ -1070,29 +1082,6 @@
   </div>
 </section>
 
-<!-- HIGHLIGHTS BAND -->
-<section class="highlights-band" aria-label="Dance highlights">
-  <div class="hl-head">
-    <span class="hl-label">Dance Highlights</span>
-    <p>A few recent moments in my training that mean a lot to me.</p>
-  </div>
-  <div class="highlights-inner">
-    <div class="hl-item hl-lead">
-      <div class="hl-num">$325K</div>
-      <div class="hl-text">in college scholarship offers<span>NYCDA College Scholarship Audition, 2026</span></div>
-    </div>
-    <div class="hl-item">
-      <div class="hl-text">Full Scholarship Recipient<span>Alvin Ailey Professional Division Summer Intensive, 2026</span></div>
-    </div>
-    <div class="hl-item">
-      <div class="hl-text">Outstanding Dancer<span>New York City Dance Alliance, 2026</span></div>
-    </div>
-    <div class="hl-item">
-      <div class="hl-text">Kennedy Center Performer<span>Hope Boykin Dance Lab, 2025</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- ARTIST -->
 <section class="artist" id="artist">
   <div class="container">
@@ -1130,36 +1119,61 @@
       <cite style="color:var(--fuchsia);">Marleigh McKay</cite>
     </div>
 
+    <div class="highlights-band hl-inline" aria-label="Dance highlights">
+      <div class="hl-head">
+        <span class="hl-label">Dance Highlights</span>
+        <p>A few recent moments in my training that mean a lot to me.</p>
+      </div>
+    </div>
+
     <div class="awards-grid">
       <div class="award-item">
-        <div class="award-icon"></div>
-        <div class="award-title">Full Scholarship Recipient</div>
-        <div class="award-org">Alvin Ailey Professional Division Summer Intensive, New York, 2026</div>
+        <div class="award-hover" style="background-image:url('ailey-hover.jpg'); background-position:center 30%;"></div>
+        <div class="award-inner">
+          <div class="award-icon"></div>
+          <div class="award-title">Alvin Ailey</div>
+          <div class="award-lines"><div>Full Scholarship Recipient, Professional Division Summer Intensive, 2026</div></div>
+        </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"></div>
-        <div class="award-title">Outstanding Dancer</div>
-        <div class="award-org">New York City Dance Alliance (NYCDA), 2026</div>
+        <div class="award-hover" style="background-image:url('nycda-hover.jpg'); background-position:center 25%;"></div>
+        <div class="award-inner">
+          <div class="award-icon"></div>
+          <div class="award-title">NYCDA</div>
+          <div class="award-lines"><div>Outstanding Dancer (Runner-Up), 2026</div><div>$325K in college scholarship offers, College Scholarship Audition, 2026</div></div>
+        </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"></div>
-        <div class="award-title">Choice Artist & Ballet Merit Scholarship</div>
-        <div class="award-org">Radix Dance Convention, 2026</div>
+        <div class="award-hover" style="background-image:url('radix-hover.jpg'); background-position:center 40%;"></div>
+        <div class="award-inner">
+          <div class="award-icon"></div>
+          <div class="award-title">Radix Dance Convention</div>
+          <div class="award-lines"><div>Choice Artist &amp; Ballet Merit Scholarship, 2026</div></div>
+        </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"></div>
-        <div class="award-title">Merit Scholarship Recipient</div>
-        <div class="award-org">MOVE|NYC DC Experience, 2024 and 2025</div>
+        <div class="award-hover" style="background-image:url('move-hover.jpg'); background-position:center 30%;"></div>
+        <div class="award-inner">
+          <div class="award-icon"></div>
+          <div class="award-title">MOVE | NYC |</div>
+          <div class="award-lines"><div>DC Experience, 2024 and 2025</div><div>YPP Summer Intensive, 2026</div></div>
+        </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"></div>
-        <div class="award-title">Kennedy Center Performer</div>
-        <div class="award-org">Hope Boykin Dance Lab, Washington, DC, 2025</div>
+        <div class="award-hover" style="background-image:url('kennedy-hover.jpg'); background-position:center 10%;"></div>
+        <div class="award-inner">
+          <div class="award-icon"></div>
+          <div class="award-title">Kennedy Center</div>
+          <div class="award-lines"><div>Performer, Hope Boykin Dance Lab, 2025</div></div>
+        </div>
       </div>
       <div class="award-item">
-        <div class="award-icon"></div>
-        <div class="award-title">Junior Curator, Dance History</div>
-        <div class="award-org">The Go-Go Museum, Washington, DC</div>
+        <div class="award-hover" style="background-image:url('gogo.jpg');"></div>
+        <div class="award-inner">
+          <div class="award-icon"></div>
+          <div class="award-title">The Go-Go Museum</div>
+          <div class="award-lines"><div>Junior Curator, Dance History</div></div>
+        </div>
       </div>
     </div>
   </div>
