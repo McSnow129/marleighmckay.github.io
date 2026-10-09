@@ -487,11 +487,12 @@
     .award-item { position: relative; overflow: hidden; }
     .award-inner { position: relative; z-index: 2; }
     .award-hover { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 0.3s ease; z-index: 1; }
-    .award-hover::after { content: ''; position: absolute; inset: 0; background: rgba(20,16,12,0.66); }
+    .award-hover::after { content: ''; position: absolute; inset: 0; background: rgba(20,16,12,var(--ov, 0.66)); }
     .award-item:hover .award-hover { opacity: 1; }
     .award-item .award-title { font-weight: 700; font-size: 1.25rem; }
     .award-lines { font-size: 0.82rem; line-height: 1.55; color: var(--blush); opacity: 0.9; font-weight: 300; }
     .award-lines div + div { margin-top: 0.3rem; }
+    .award-item:hover .award-title, .award-item:hover .award-lines { text-shadow: 0 1px 6px rgba(0,0,0,0.85); }
     .award-item:hover .award-lines { color: var(--canvas); opacity: 1; }
 
     /* ADVOCATE */
@@ -1160,7 +1161,7 @@
         </div>
       </div>
       <div class="award-item">
-        <div class="award-hover" style="background-image:url('kennedy-hover.jpg'); background-position:center 60%;"></div>
+        <div class="award-hover" style="background-image:url('kennedy-hover-2.jpg'); background-position:center 92%; --ov:0.35;"></div>
         <div class="award-inner">
           <div class="award-icon"></div>
           <div class="award-title">Kennedy Center</div>
